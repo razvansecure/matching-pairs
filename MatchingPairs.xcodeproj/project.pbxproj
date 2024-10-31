@@ -6,8 +6,31 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		875D3DF22CD2A213009A0C7B /* arm64-apple-ios-simulator.swiftsourceinfo in Resources */ = {isa = PBXBuildFile; fileRef = 875D3DE62CD2A213009A0C7B /* arm64-apple-ios-simulator.swiftsourceinfo */; };
+		875D3DF32CD2A213009A0C7B /* x86_64-apple-ios-simulator.swiftdoc in Resources */ = {isa = PBXBuildFile; fileRef = 875D3DEC2CD2A213009A0C7B /* x86_64-apple-ios-simulator.swiftdoc */; };
+		875D3DF42CD2A213009A0C7B /* arm64-apple-ios-simulator.swiftdoc in Resources */ = {isa = PBXBuildFile; fileRef = 875D3DE92CD2A213009A0C7B /* arm64-apple-ios-simulator.swiftdoc */; };
+		875D3DF52CD2A213009A0C7B /* x86_64-apple-ios-simulator.swiftmodule in Resources */ = {isa = PBXBuildFile; fileRef = 875D3DED2CD2A213009A0C7B /* x86_64-apple-ios-simulator.swiftmodule */; };
+		875D3DF62CD2A213009A0C7B /* x86_64-apple-ios-simulator.abi.json in Resources */ = {isa = PBXBuildFile; fileRef = 875D3DEE2CD2A213009A0C7B /* x86_64-apple-ios-simulator.abi.json */; };
+		875D3DF72CD2A213009A0C7B /* x86_64-apple-ios-simulator.swiftsourceinfo in Resources */ = {isa = PBXBuildFile; fileRef = 875D3DE72CD2A213009A0C7B /* x86_64-apple-ios-simulator.swiftsourceinfo */; };
+		875D3DF82CD2A213009A0C7B /* arm64-apple-ios-simulator.abi.json in Resources */ = {isa = PBXBuildFile; fileRef = 875D3DEB2CD2A213009A0C7B /* arm64-apple-ios-simulator.abi.json */; };
+		875D3DF92CD2A213009A0C7B /* arm64-apple-ios-simulator.swiftmodule in Resources */ = {isa = PBXBuildFile; fileRef = 875D3DEA2CD2A213009A0C7B /* arm64-apple-ios-simulator.swiftmodule */; };
+		875D3DFA2CD2A213009A0C7B /* libMatchingPairsThemes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 875D3DF02CD2A213009A0C7B /* libMatchingPairsThemes.a */; };
+		875D3E2E2CD2DFE9009A0C7B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 875D3E2C2CD2DFE9009A0C7B /* Model.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		875D3D942CD044FE009A0C7B /* MatchingPairs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchingPairs.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		875D3DE62CD2A213009A0C7B /* arm64-apple-ios-simulator.swiftsourceinfo */ = {isa = PBXFileReference; lastKnownFileType = file; path = "arm64-apple-ios-simulator.swiftsourceinfo"; sourceTree = "<group>"; };
+		875D3DE72CD2A213009A0C7B /* x86_64-apple-ios-simulator.swiftsourceinfo */ = {isa = PBXFileReference; lastKnownFileType = file; path = "x86_64-apple-ios-simulator.swiftsourceinfo"; sourceTree = "<group>"; };
+		875D3DE92CD2A213009A0C7B /* arm64-apple-ios-simulator.swiftdoc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "arm64-apple-ios-simulator.swiftdoc"; sourceTree = "<group>"; };
+		875D3DEA2CD2A213009A0C7B /* arm64-apple-ios-simulator.swiftmodule */ = {isa = PBXFileReference; lastKnownFileType = file; path = "arm64-apple-ios-simulator.swiftmodule"; sourceTree = "<group>"; };
+		875D3DEB2CD2A213009A0C7B /* arm64-apple-ios-simulator.abi.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "arm64-apple-ios-simulator.abi.json"; sourceTree = "<group>"; };
+		875D3DEC2CD2A213009A0C7B /* x86_64-apple-ios-simulator.swiftdoc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "x86_64-apple-ios-simulator.swiftdoc"; sourceTree = "<group>"; };
+		875D3DED2CD2A213009A0C7B /* x86_64-apple-ios-simulator.swiftmodule */ = {isa = PBXFileReference; lastKnownFileType = file; path = "x86_64-apple-ios-simulator.swiftmodule"; sourceTree = "<group>"; };
+		875D3DEE2CD2A213009A0C7B /* x86_64-apple-ios-simulator.abi.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "x86_64-apple-ios-simulator.abi.json"; sourceTree = "<group>"; };
+		875D3DF02CD2A213009A0C7B /* libMatchingPairsThemes.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMatchingPairsThemes.a; sourceTree = "<group>"; };
+		875D3E2D2CD2DFE9009A0C7B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -23,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				875D3DFA2CD2A213009A0C7B /* libMatchingPairsThemes.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,6 +56,8 @@
 		875D3D8B2CD044FE009A0C7B = {
 			isa = PBXGroup;
 			children = (
+				875D3E2C2CD2DFE9009A0C7B /* Model.xcdatamodeld */,
+				875D3DF12CD2A213009A0C7B /* lib */,
 				875D3D962CD044FE009A0C7B /* MatchingPairs */,
 				875D3D952CD044FE009A0C7B /* Products */,
 			);
@@ -43,6 +69,38 @@
 				875D3D942CD044FE009A0C7B /* MatchingPairs.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		875D3DE82CD2A213009A0C7B /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				875D3DE62CD2A213009A0C7B /* arm64-apple-ios-simulator.swiftsourceinfo */,
+				875D3DE72CD2A213009A0C7B /* x86_64-apple-ios-simulator.swiftsourceinfo */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
+		875D3DEF2CD2A213009A0C7B /* MatchingPairsThemes.swiftmodule */ = {
+			isa = PBXGroup;
+			children = (
+				875D3DE82CD2A213009A0C7B /* Project */,
+				875D3DE92CD2A213009A0C7B /* arm64-apple-ios-simulator.swiftdoc */,
+				875D3DEA2CD2A213009A0C7B /* arm64-apple-ios-simulator.swiftmodule */,
+				875D3DEB2CD2A213009A0C7B /* arm64-apple-ios-simulator.abi.json */,
+				875D3DEC2CD2A213009A0C7B /* x86_64-apple-ios-simulator.swiftdoc */,
+				875D3DED2CD2A213009A0C7B /* x86_64-apple-ios-simulator.swiftmodule */,
+				875D3DEE2CD2A213009A0C7B /* x86_64-apple-ios-simulator.abi.json */,
+			);
+			path = MatchingPairsThemes.swiftmodule;
+			sourceTree = "<group>";
+		};
+		875D3DF12CD2A213009A0C7B /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				875D3DEF2CD2A213009A0C7B /* MatchingPairsThemes.swiftmodule */,
+				875D3DF02CD2A213009A0C7B /* libMatchingPairsThemes.a */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -109,6 +167,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				875D3DF22CD2A213009A0C7B /* arm64-apple-ios-simulator.swiftsourceinfo in Resources */,
+				875D3DF32CD2A213009A0C7B /* x86_64-apple-ios-simulator.swiftdoc in Resources */,
+				875D3DF42CD2A213009A0C7B /* arm64-apple-ios-simulator.swiftdoc in Resources */,
+				875D3DF52CD2A213009A0C7B /* x86_64-apple-ios-simulator.swiftmodule in Resources */,
+				875D3DF62CD2A213009A0C7B /* x86_64-apple-ios-simulator.abi.json in Resources */,
+				875D3DF72CD2A213009A0C7B /* x86_64-apple-ios-simulator.swiftsourceinfo in Resources */,
+				875D3DF82CD2A213009A0C7B /* arm64-apple-ios-simulator.abi.json in Resources */,
+				875D3DF92CD2A213009A0C7B /* arm64-apple-ios-simulator.swiftmodule in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				875D3E2E2CD2DFE9009A0C7B /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,10 +330,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.razvan.MatchingPairs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INCLUDE_PATHS = "\"$(PROJECT_DIR)/lib\"";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -291,10 +363,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.razvan.MatchingPairs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INCLUDE_PATHS = "\"$(PROJECT_DIR)/lib\"";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -322,6 +399,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		875D3E2C2CD2DFE9009A0C7B /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				875D3E2D2CD2DFE9009A0C7B /* Model.xcdatamodel */,
+			);
+			currentVersion = 875D3E2D2CD2DFE9009A0C7B /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 875D3D8C2CD044FE009A0C7B /* Project object */;
 }
