@@ -15,27 +15,25 @@ class CardListViewModel: ObservableObject {
     @Published var flippedCard: CardViewModel?
     @Published var matches = [CardViewModel]()
     @Published var cards: [CardViewModel] = []
-    @Published var timeRemaining: Int
     @Published var score = 0
     @Published var isFinished = false
     var numberOfPairs: Int
-    let startTimeRemaining = 15
-    var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    var timerManager: TimerManager
     
-    init(numberOfPairs: Int, viewContext: NSManagedObjectContext) {
+    init(numberOfPairs: Int, viewContext: NSManagedObjectContext, timerManager: TimerManager) {
         self.numberOfPairs = numberOfPairs
-        self.timeRemaining = startTimeRemaining
         self.viewContext = viewContext
+        self.timerManager = timerManager
     }
     
     func resetGame(symbols: [String]) {
         flippedCard = nil
         isFinished = false
         matches = []
-        timeRemaining = startTimeRemaining
+        timerManager.reset()
         score = 0
         cards = CardListViewModel.createCardList(numberOfPairs: numberOfPairs, symbols: symbols)
-        timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+        timerManager.start()
     }
     
     
@@ -50,7 +48,6 @@ class CardListViewModel: ObservableObject {
 
     
     static func createCardList(numberOfPairs: Int, symbols: [String]) -> [CardViewModel] {
-        //let symbols = ["🔴", "🔵", "🟠", "🟡", "🟢", "🟣"]
         var cards: [CardViewModel] = []
         for i in 0..<numberOfPairs {
             let symbol = symbols[i % symbols.count]
@@ -60,27 +57,39 @@ class CardListViewModel: ObservableObject {
         return cards.shuffled()
     }
     
-    private func checkForMatch(firstCard: CardViewModel, secondCard: CardViewModel) {
+    func checkForMatch(firstCard: CardViewModel, secondCard: CardViewModel) {
         if firstCard.card.symbol == secondCard.card.symbol {
             matches.append(firstCard)
             matches.append(secondCard)
             score += numberOfPairs
             if matches.count == cards.count {
-                score += numberOfPairs * timeRemaining
-                timer.upstream.connect().cancel()
-                isFinished = true
-                saveScore(score: score)
+                endGame()
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                firstCard.showCard = false
-                secondCard.showCard = false
-            }
+            hideCards(firstCard: firstCard, secondCard: secondCard)
         } else {
             score -= numberOfPairs/4
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                firstCard.needsFlipBack = true
-                secondCard.needsFlipBack = true
-            }
+            flipBackCards(firstCard: firstCard, secondCard: secondCard)
+        }
+    }
+    
+    func endGame() {
+        score += numberOfPairs * timerManager.timeRemaining
+        timerManager.stop()
+        isFinished = true
+        saveScore(score: score)
+    }
+    
+    func hideCards(firstCard: CardViewModel, secondCard: CardViewModel) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            firstCard.showCard = false
+            secondCard.showCard = false
+        }
+    }
+    
+    func flipBackCards(firstCard: CardViewModel, secondCard: CardViewModel) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            firstCard.needsFlipBack = true
+            secondCard.needsFlipBack = true
         }
     }
     
@@ -88,9 +97,5 @@ class CardListViewModel: ObservableObject {
         let scoreTable = Score(context: viewContext)
         scoreTable.score = Int16(score)
         try? viewContext.save()
-    }
-    
-    private func addScore() {
-        score += numberOfPairs
     }
 }

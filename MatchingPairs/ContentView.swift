@@ -27,7 +27,7 @@ struct ContentView: View {
                     value: $numberOfPairs,
                     in: 2...30,
                     step: 1
-                )
+                ).accessibilityIdentifier("numberOfPairsSlider")
                 let intNumberOfPairs = Int(numberOfPairs)
                 Text("Number of pairs: \(intNumberOfPairs)")
                 HStack {

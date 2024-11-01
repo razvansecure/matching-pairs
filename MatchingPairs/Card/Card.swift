@@ -8,11 +8,15 @@
 import Foundation
 import SwiftUICore
 
-class Card: Identifiable {
+class Card: Identifiable, Equatable {
     var id = UUID()
     var symbol: String
     
     init(symbol: String) {
         self.symbol = symbol
+    }
+    
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        return lhs.id == rhs.id
     }
 }

@@ -12,10 +12,13 @@ import CoreData
 struct CardListView: View {
     @EnvironmentObject var themeManager: ThemeManager
     @ObservedObject var viewModel: CardListViewModel
+    @ObservedObject var timerManager : TimerManager
     @State var lostScreen = false
     
     init(numberOfPairs: Int, viewContext: NSManagedObjectContext) {
-        self.viewModel = CardListViewModel(numberOfPairs: numberOfPairs, viewContext: viewContext)
+        let timeManager = TimerManager(startTime: 100)
+        self.timerManager = timeManager
+        self.viewModel = CardListViewModel(numberOfPairs: numberOfPairs, viewContext: viewContext, timerManager: timeManager)
     }
 
     var body: some View {
@@ -25,10 +28,10 @@ struct CardListView: View {
                     Text("Score: \(viewModel.score)")
                     HStack {
                         Text("Time remaining: ")
-                        Text("\(viewModel.timeRemaining)s")
-                            .onReceive(viewModel.timer) { _ in
-                                if viewModel.timeRemaining > 0 {
-                                    viewModel.timeRemaining -= 1
+                        Text("\(timerManager.timeRemaining)s")
+                            .onReceive(timerManager.timer) { _ in
+                                if timerManager.timeRemaining > 0 {
+                                    timerManager.decrementTime()
                                 }
                                 else {
                                     lostScreen = true
@@ -54,10 +57,10 @@ struct CardListView: View {
                         }
                         else {
                             LazyVGrid(columns: columns, spacing: 0) {
-                                ForEach(viewModel.cards){ card in
-                                    CardView(cardViewModel: card, handleCardTap: viewModel.handleCardTap)
+                                ForEach(Array(viewModel.cards.enumerated()), id: \.offset){ index, card in
+                                    CardView(cardViewModel: card, handleCardTap: viewModel.handleCardTap, index: index)
                                 }
-                            }
+                            }.accessibilityIdentifier("cardsGrid")
                             .padding()
                         }
                     }

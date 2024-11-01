@@ -15,13 +15,14 @@ struct CardView: View {
     @State private var isAnimating = false
     @State private var flashcardRotation = 0.0
     @State private var contentRotation = 0.0
+    var index: Int
     var body: some View {
         ZStack {
             if cardViewModel.showCard {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(themeManager.selectedTheme.card_color.color)
                     .aspectRatio(1/1.5, contentMode: .fit)
-                    .padding(2)
+                    .padding(2).accessibilityIdentifier("card_\(index)")
                 Text(cardViewModel.isFlipped ? cardViewModel.card.symbol : themeManager.selectedTheme.card_symbol)
                     .font(.system(size: 20))
             }
@@ -51,6 +52,9 @@ struct CardView: View {
     }
     
     func flipAnimation(setIsFlipped: Bool){
+        if setIsFlipped {
+            handleCardTap(cardViewModel)
+        }
         isAnimating = true
         let animationTime = 0.5
         withAnimation(Animation.linear(duration: animationTime/2)) {
@@ -64,9 +68,6 @@ struct CardView: View {
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + animationTime) {
                 isAnimating = false
-                if setIsFlipped {
-                    handleCardTap(cardViewModel)
-                }
             }
         }
     }
@@ -75,5 +76,5 @@ struct CardView: View {
 }
 
 #Preview {
-    CardView(cardViewModel: CardViewModel(card: Card(symbol: "🔴")), handleCardTap: CardListViewModel(numberOfPairs: 10, viewContext: DataManager.preview.container.viewContext).handleCardTap).environmentObject(ThemeManager())
+    CardView(cardViewModel: CardViewModel(card: Card(symbol: "🔴")), handleCardTap: CardListViewModel(numberOfPairs: 10, viewContext: DataManager.preview.container.viewContext, timerManager: TimerManager(startTime: 30)).handleCardTap, index: 0).environmentObject(ThemeManager())
 }
