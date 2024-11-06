@@ -68,6 +68,11 @@
 			path = MatchingPairsUnitTests;
 			sourceTree = "<group>";
 		};
+		87A72A172CDB9E54006F80E8 /* MatchingPairsThemeManager */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MatchingPairsThemeManager;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +104,7 @@
 		875D3D8B2CD044FE009A0C7B = {
 			isa = PBXGroup;
 			children = (
+				87A72A172CDB9E54006F80E8 /* MatchingPairsThemeManager */,
 				875D3E2C2CD2DFE9009A0C7B /* Model.xcdatamodeld */,
 				875D3DF12CD2A213009A0C7B /* lib */,
 				875D3D962CD044FE009A0C7B /* MatchingPairs */,
@@ -167,6 +173,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				875D3D962CD044FE009A0C7B /* MatchingPairs */,
+				87A72A172CDB9E54006F80E8 /* MatchingPairsThemeManager */,
 			);
 			name = MatchingPairs;
 			packageProductDependencies = (
